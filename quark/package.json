@@ -1,0 +1,36 @@
+{
+  "name": "quark",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Q.U.A.R.K. \u2014 Quantum Universal Assistant for Real-time Knowledge. A voice-and-text HUD personal assistant built with Next.js, React 19 and Gemini function calling.",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "lint": "eslint . --ext .js,.jsx",
+    "test": "node tests/unit-calc.mjs && node tests/unit-offline-brain.mjs && node tests/unit-tool-selection.mjs",
+    "test:e2e": "node tests/e2e-browser.mjs",
+    "test:live": "node tests/mock-gemini-server.mjs & sleep 1 && node tests/e2e-live-model.mjs",
+    "mock:gemini": "node tests/mock-gemini-server.mjs",
+    "test:stt": "node tests/e2e-local-stt.mjs",
+    "test:providers": "node tests/e2e-providers.mjs",
+    "test:all": "npm run lint && npm run build && npm test && npm run test:e2e && npm run test:stt && npm run test:providers"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.6.2",
+    "@types/react": "19.2.2",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.3.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "playwright-core": "1.63.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
